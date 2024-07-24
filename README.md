@@ -12,9 +12,8 @@ This repository contains code for generating Class Activation Maps (CAMs) using 
 - NumPy
 - Matplotlib
 - Pillow
-- torch
 -torchvision
--opencv-python
+
 
 
 ## Installation
