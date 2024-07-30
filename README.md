@@ -1,8 +1,8 @@
-# ClassActivationMap-AdversarialAttack
-ClassActivationMap-AdversarialAttack
+# Explainable AI
+Heatmap-AdversarialAttack
 
 
-This repository contains code for generating Adversarial Attack and its Class Activation Maps (CAMs) using  a pre-trained ResNet-50 model.
+This repository contains code for generating Adversarial Attack and its heatmaps using  a pre-trained ResNet-50 model.
 
 
 ## Requirements
