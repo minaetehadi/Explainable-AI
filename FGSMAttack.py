@@ -8,11 +8,9 @@ from torchvision import models, transforms
 from torch.autograd import Variable
 from PIL import Image
 
-# Load a pre-trained model
 model = models.resnet50(pretrained=True)
 model.eval()
 
-# Image preprocessing
 preprocess = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
@@ -47,7 +45,6 @@ def generate_adversarial_example(model, img_path, epsilon):
     output = model(input_img)
     _, init_pred = torch.max(output, 1)
 
-    # Calculate the loss
     loss = F.nll_loss(F.log_softmax(output, dim=1), init_pred)
 
     # Zero all existing gradients
@@ -56,10 +53,8 @@ def generate_adversarial_example(model, img_path, epsilon):
     # Backward pass to calculate gradients
     loss.backward()
 
-    # Collect the gradients of the input image
     data_grad = input_img.grad.data
 
-    # Call FGSM attack
     perturbed_image = fgsm_attack(input_img, epsilon, data_grad)
 
     return perturbed_image
@@ -87,8 +82,8 @@ def display_images(original_img_path, adversarial_img):
 
     plt.show()
 
-# Parameters
-img_path = 'path/to/your/image.jpg'  # Update the image path
+
+img_path = 'path/to/your/image.jpg' 
 epsilon = 0.03  # Perturbation magnitude
 
 # Generate the adversarial example
